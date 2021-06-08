@@ -19,25 +19,25 @@ import com.example.saurav.it.service.StudentServiceImpl;
 public class StudentController {
 	@Autowired
 	StudentServiceImpl service;
-
+	//http://localhost:8080/curd/student/12
 	@GetMapping("/student")
 	public List<Student> getAllStudent() {
 		return service.getAllStudent();
 
 	}
-
+	//http://localhost:8080/curd/student/12
 	@GetMapping("/student/{studentid}")
 	public Student getStudent(@PathVariable("studentid") int id) {
 		return service.getByStudentId(id);
 	}
-
+	//http://localhost:8080/curd/student
 	@PostMapping("/student")
 	public int saveStudent(@RequestBody Student student) {
 		service.saveorUpdate(student);
 		return student.getSno();
 
 	}
-
+	//http://localhost:8080/curd/student/12
 	@DeleteMapping("/student/{studentid}")
 	public void DeleteById(@PathVariable("studentid") int id) {
 		service.DeleteById(id);
